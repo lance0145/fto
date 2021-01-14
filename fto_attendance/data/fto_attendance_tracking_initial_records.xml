@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+	<record id="bioMetrics_attendance_tracking_default_record" model="hr.attendance.tracking">
+		<field name="x_name">BioMetrics</field>
+		<field name="x_description">BioMetrics</field>
+	</record>
+	<record id="bioMetric_malfunction_attendance_tracking_default_record" model="hr.attendance.tracking">
+		<field name="x_name">BioMetric Malfunction</field>
+		<field name="x_description">BioMetric Malfunction</field>
+	</record>
+	<record id="power_outage_attendance_tracking_default_record" model="hr.attendance.tracking">
+		<field name="x_name">Power Outage</field>
+		<field name="x_description">Power Outage</field>
+	</record>
+	<record id="remote_attendance_tracking_provider_default_record" model="hr.attendance.tracking">
+		<field name="x_name">Remote</field>
+		<field name="x_description">Remote</field>
+	</record>
+	<record id="other_attendance_tracking_default_record" model="hr.attendance.tracking">
+		<field name="x_name">Other</field>
+		<field name="x_description">Other</field>
+	</record>
+</flectra>

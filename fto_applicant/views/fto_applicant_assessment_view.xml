@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+	<record model="ir.ui.view" id="fto_applicant_assessment_view_inherited">
+	    <field name="name">fto.applicant.assessment.view.inherited</field>
+	    <field name="model">hr.applicant</field>
+	    <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
+	    <field name="arch" type="xml">
+	        <xpath expr="//field[@name='description']" position="after">
+	        	<group string="Assessments"></group>
+	        	<field name="x_surveys_assessments"></field>
+	        </xpath>
+	    </field>
+	</record>
+
+	<record model="ir.ui.view" id="fto_applicant_assessment_tree_view_inherited">
+	    <field name="name">fto.applicant.assessment.tree.view.inherited</field>
+	    <field name="model">survey.user_input</field>
+	    <field name="inherit_id" ref="survey.survey_user_input_tree"/>
+	    <field name="mode">primary</field>
+	    <field name="arch" type="xml">
+            <field name="date_create" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+             <field name="deadline" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+             <field name="partner_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+             <field name="email" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+             <field name="type" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="quizz_score" position="attributes">
+				<attribute name="groups"></attribute>
+			</field>
+	    </field>
+	</record>
+
+</flectra>

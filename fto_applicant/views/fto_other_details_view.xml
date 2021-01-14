@@ -1,0 +1,19 @@
+<flectra>
+  <data>
+  	<record model="ir.ui.view" id="fto_applicant.list">
+      <field name="name">fto-applicant list</field>
+      <field name="model">hr.applicant</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="x_linkedin_url"/>
+            <field name="x_years_of_experience"/>
+            <field name="x_salary_previous"/>
+            <field name="x_test_type_results"/>
+            <field name="x_test_speed_results"/>
+            <field name="x_ip_address"/>
+            <field name="x_longitude_latitude"/>
+        </tree>
+      </field>      
+    </record>
+  </data>
+</flectra>

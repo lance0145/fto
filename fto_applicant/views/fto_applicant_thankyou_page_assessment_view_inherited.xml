@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+<template id="fto_applicant_thankyou_page_assessment_view_inherited" inherit_id="website_hr_recruitment.thankyou_ir_ui_view">
+        <xpath expr="//div[@id='o_recruitment_thank_cta']" position="attributes">
+            <attribute name="class">hidden</attribute>
+        </xpath>
+
+        <xpath expr="//div[@id='o_recruitment_thank_cta']" position="before">
+        	<div class="row" id="fto_assessment_list">
+                <div class="col-md-12">
+                    <p class="text-center">
+                        Please complete the assessments referenced below at <br/> your earliest convenience. An E-Mail has been sent <br/> containing links to the assessments if you wish to <br/> complete them at a later time.
+                    </p>
+                    <div class="text-center">
+                        <div t-if="len(assessments)">
+                            <t t-foreach="assessments" t-as="rec">
+                                <p>
+                                    <strong><span t-esc="rec.get('title')"></span>: </strong>
+                                    <a class="btn btn-primary btn-sm" t-att-href="'%s' % (rec.get('url'))" target="_blank">
+                                        <strong> Start Test</strong>
+                                    </a>
+                                </p>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+</template>
+</flectra>

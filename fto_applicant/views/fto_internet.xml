@@ -1,0 +1,189 @@
+<flectra>
+    <data>
+      <!-- explicit list view definition -->
+      <record model="ir.ui.view" id="internet_form_view">
+        <field name="name">internet.form</field>
+        <field name="model">res.partner.internet</field>
+        <field name="arch" type="xml">
+          <form string="Internet Form">
+            <sheet>
+              <group>
+                <field name="x_partner_id"/>
+                <field name="x_provider_id"/>
+                <field name="x_plan_id"/>
+                <field name="x_type_id"/>
+                <field name="x_rate"/>
+                <field name="x_account_holder"/>
+              </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+      
+    
+      <record model="ir.ui.view" id="internet_tree_view">
+        <field name="name">internet.tree</field>
+        <field name="model">res.partner.internet</field>
+        <field name="arch" type="xml">
+            <tree string="Internet Tree">
+                <field name="x_partner_id"/>
+                <field name="x_provider_id"/>
+                <field name="x_plan_id"/>
+                <field name="x_type_id"/>
+                <field name="x_rate"/>
+                <field name="x_account_holder"/>
+            </tree>
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="internet_provider_form_view">
+        <field name="name">internet.provider.form</field>
+        <field name="model">res.partner.internet.provider</field>
+        <field name="arch" type="xml">
+          <form string="Internet Provider Form">
+            <sheet>
+              <group>
+                <field name="x_name"/>
+                <field name="x_description"/>
+              </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="internet_provider_tree_view">
+        <field name="name">internet.provider.tree</field>
+        <field name="model">res.partner.internet.provider</field>
+        <field name="arch" type="xml">
+            <tree string="Internet Provider Tree">
+              <field name="x_name"/>
+              <field name="x_description"/>
+            </tree>
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="internet_plan_form_view">
+        <field name="name">internet.plan.form</field>
+        <field name="model">res.partner.internet.plan</field>
+        <field name="arch" type="xml">
+          <form string="Internet Plan Form">
+            <sheet>
+              <group>
+                <field name="x_name"/>
+                <field name="x_description"/>
+              </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="internet_plan_tree_view">
+        <field name="name">internet.plan.tree</field>
+        <field name="model">res.partner.internet.plan</field>
+        <field name="arch" type="xml">
+            <tree string="Internet Plan Tree">
+              <field name="x_name"/>
+              <field name="x_description"/>
+            </tree>
+        </field>
+      </record>
+      
+      <record model="ir.ui.view" id="internet_type_form_view">
+        <field name="name">internet.type.form</field>
+        <field name="model">res.partner.internet.type</field>
+        <field name="arch" type="xml">
+          <form string="Internet Type Form">
+            <sheet>
+              <group>
+                <field name="x_name"/>
+                <field name="x_description"/>
+              </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="internet_type_tree_view">
+        <field name="name">internet.type.tree</field>
+        <field name="model">res.partner.internet.type</field>
+        <field name="arch" type="xml">
+            <tree string="Internet Type Tree">
+              <field name="x_name"/>
+              <field name="x_description"/>
+            </tree>
+        </field>
+      </record>
+  
+  
+      <!-- actions opening views on models -->
+      
+      <record model="ir.actions.act_window" id="internet_action_window">
+          <field name="name">Internet</field>
+          <field name="res_model">res.partner.internet</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+              <p class="oe_view_nocontent_create">Internet Details</p>
+          </field>
+      </record>
+  
+      <record model="ir.actions.act_window" id="internet_provider_action_window">
+          <field name="name">Internet Provider</field>
+          <field name="res_model">res.partner.internet.provider</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+              <p class="oe_view_nocontent_create">Internet Provider Details</p>
+          </field>
+      </record>
+
+       <record model="ir.actions.act_window" id="internet_plan_action_window">
+          <field name="name">Internet Plan</field>
+          <field name="res_model">res.partner.internet.plan</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+              <p class="oe_view_nocontent_create">Internet Plan Details</p>
+          </field>
+      </record>
+
+       <record model="ir.actions.act_window" id="internet_type_action_window">
+          <field name="name">Internet Type</field>
+          <field name="res_model">res.partner.internet.type</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+              <p class="oe_view_nocontent_create">Internet Type Details</p>
+          </field>
+      </record>
+      
+  
+      <!-- server action to the one above -->
+      <!--
+      <record model="ir.actions.server" id="fle4.action_server">
+        <field name="name">FLE4 server</field>
+        <field name="model_id" ref="model_fle4_fle4"/>
+        <field name="state">code</field>
+        <field name="code">
+          action = {
+            "type": "ir.actions.act_window",
+            "view_mode": "tree,form",
+            "res_model": self._name,
+          }
+        </field>
+      </record>
+      -->
+  
+      <!-- Top menu item -->
+      
+      <!-- menu categories -->
+      <menuitem name="FTO Internet" id="ftointernet_menu" parent="ftoaddons_menu"/>
+  
+      <menuitem name="Internet List" id="internet_menu" parent="ftointernet_menu" action="internet_action_window"/>
+      <menuitem name="Internet Provider" id="internet_provider_menu" parent="ftointernet_menu" action="internet_provider_action_window"/>
+      <menuitem name="Internet Plan" id="internet_plan_menu" parent="ftointernet_menu" action="internet_plan_action_window"/>
+      <menuitem name="Internet Type" id="internet_type_menu" parent="ftointernet_menu" action="internet_type_action_window"/>
+
+  
+    </data>
+  </flectra>

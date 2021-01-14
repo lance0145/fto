@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fto_applicant_fto_applicant,fto_applicant.fto_applicant,model_fto_applicant_fto_applicant,,1,1,1,1
+access_res_partner_internet,access_res_partner_internet,model_res_partner_internet,base.group_user,1,1,1,1
+access_res_partner_identification,access_res_partner_identification,model_res_partner_identification,base.group_user,1,1,1,1
+access_res_partner_education_level,access_res_partner_education_level,model_res_partner_education_level,base.group_user,1,1,1,1
+access_res_partner_education_course,access_res_partner_education_course,model_res_partner_education_course,base.group_user,1,1,1,1 
+access_res_partner_internet_provider,access_res_partner_internet_provider,model_res_partner_internet_provider,base.group_user,1,1,1,1 
+access_hr_job_type,access_hr_job_type,model_hr_job_type,base.group_user,1,1,1,1
+access_test_global,access_test_global,model_test_global,base.group_user,1,1,1,1 
+access_res_identification,access_res_identification,model_res_identification,base.group_user,1,1,1,1
+access_res_partner_internet_plan,access_res_partner_internet_plan,model_res_partner_internet_plan,base.group_user,1,1,1,1
+access_res_partner_internet,access_res_partner_internet,model_res_partner_internet,base.group_user,1,1,1,1

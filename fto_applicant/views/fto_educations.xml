@@ -1,0 +1,147 @@
+<flectra>
+    <data>
+      <!-- explicit list view definition -->
+      <record model="ir.ui.view" id="education_form_view">
+        <field name="name">education.form</field>
+        <field name="model">res.partner.education</field>
+        <field name="arch" type="xml">
+          <form string="Education Form">
+            <sheet>
+              <group>
+                <field name="x_partner_id"/>
+                <field name="x_institution_name"/>
+                <field name="x_year"/>
+                <field name="x_level_id"/>
+                <field name="x_course_id"/>
+              </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+      
+    
+      <record model="ir.ui.view" id="education_tree_view">
+        <field name="name">education.tree</field>
+        <field name="model">res.partner.education</field>
+        <field name="arch" type="xml">
+            <tree string="Education Form">
+                <field name="x_partner_id"/>
+              <field name="x_institution_name"/>
+              <field name="x_year"/>
+              <field name="x_level_id"/>
+              <field name="x_course_id"/>
+            </tree>
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="education_course_form_view">
+        <field name="name">education.course.form</field>
+        <field name="model">res.partner.education.course</field>
+        <field name="arch" type="xml">
+          <form string="Education Course Form">
+            <sheet>
+              <group>
+                <field name="x_name"/>
+              </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="education_course_tree_view">
+        <field name="name">education.course.tree</field>
+        <field name="model">res.partner.education.course</field>
+        <field name="arch" type="xml">
+            <tree string="Education Course Tree">
+              <field name="x_name"/>
+            </tree>
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="education_level_form_view">
+        <field name="name">education.level.form</field>
+        <field name="model">res.partner.education.level</field>
+        <field name="arch" type="xml">
+          <form string="Education level Form">
+            <sheet>
+              <group>
+                <field name="x_name"/>
+              </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="education_level_tree_view">
+        <field name="name">education.level.tree</field>
+        <field name="model">res.partner.education.level</field>
+        <field name="arch" type="xml">
+            <tree string="Education Level Tree">
+              <field name="x_name"/>
+            </tree>
+        </field>
+      </record>
+      
+  
+  
+      <!-- actions opening views on models -->
+      
+      <record model="ir.actions.act_window" id="education_action_window">
+          <field name="name">Education</field>
+          <field name="res_model">res.partner.education</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+              <p class="oe_view_nocontent_create">Education Details</p>
+          </field>
+      </record>
+  
+      <record model="ir.actions.act_window" id="education_course_action_window">
+          <field name="name">Education Course</field>
+          <field name="res_model">res.partner.education.course</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+              <p class="oe_view_nocontent_create">Education Course Details</p>
+          </field>
+      </record>
+  
+      <record model="ir.actions.act_window" id="education_level_action_window">
+          <field name="name">Education Course</field>
+          <field name="res_model">res.partner.education.level</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+              <p class="oe_view_nocontent_create">Education Level Details</p>
+          </field>
+      </record>
+      
+  
+      <!-- server action to the one above -->
+      <!--
+      <record model="ir.actions.server" id="fle4.action_server">
+        <field name="name">FLE4 server</field>
+        <field name="model_id" ref="model_fle4_fle4"/>
+        <field name="state">code</field>
+        <field name="code">
+          action = {
+            "type": "ir.actions.act_window",
+            "view_mode": "tree,form",
+            "res_model": self._name,
+          }
+        </field>
+      </record>
+      -->
+  
+      <!-- Top menu item -->
+      
+      <!-- menu categories -->
+      <menuitem name="FTO Educations" id="ftoeducation_menu" parent="ftoaddons_menu"/>
+  
+      <menuitem name="Educations List" id="education_menu" parent="ftoeducation_menu" action="education_action_window"/>
+      <menuitem name="Education Course" id="education_course_menu" parent="ftoeducation_menu" action="education_course_action_window"/>
+      <menuitem name="Education Level" id="education_level_menu" parent="ftoeducation_menu" action="education_level_action_window"/>
+
+  
+    </data>
+  </flectra>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flectra>
+    <data>
+
+        <record id="hr_applicant_tree_view_inherited" model="ir.ui.view">
+
+            <field name="name">hr.applicant.tree.view.inherited</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.crm_case_tree_view_job"></field>            
+            <field name="arch" type="xml">
+
+                <xpath expr="/tree/field[@name='medium_id']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+
+
+                <xpath expr="/tree/field[@name='partner_phone']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="/tree/field[@name='user_id']" position="after">
+                    <field name="x_res_partner_country_id"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</flectra>

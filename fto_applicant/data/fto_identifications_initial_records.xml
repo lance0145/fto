@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+        <data noupdate="1">
+                <record id="sss_identifications_default_record" model="res.identification">
+                        <field name="x_name">SSS</field>
+                        <field name="x_description">Social Security System</field>
+                        <field name="x_country_id">176</field>
+                </record>
+
+                <record id="tin_identifications_default_record" model="res.identification">
+                        <field name="x_name">TIN</field>
+                        <field name="x_description">Taxpayer Identification Number</field>
+                        <field name="x_country_id">176</field>
+                </record>
+
+                <record id="pagibig_identifications_default_record" model="res.identification">
+                        <field name="x_name">PAGIBIG</field>
+                        <field name="x_description"></field>
+                        <field name="x_country_id">176</field>
+                </record>
+
+                <record id="philhealth_identifications_default_record" model="res.identification">
+                        <field name="x_name">PHILHEALTH</field>
+                        <field name="x_description"></field>
+                        <field name="x_country_id">176</field>
+                </record>
+
+
+                <record id="curp_identifications_default_record" model="res.identification">
+                        <field name="x_name">CURP</field>
+                        <field name="x_description"></field>
+                        <field name="x_country_id">156</field>
+                </record>
+
+                <record id="rfc_identifications_default_record" model="res.identification">
+                        <field name="x_name">RFC</field>
+                        <field name="x_description"></field>
+                        <field name="x_country_id">156</field>
+                </record>
+
+                <record id="imss_identifications_default_record" model="res.identification">
+                        <field name="x_name">Numero de IMSS</field>
+                        <field name="x_description"></field>
+                        <field name="x_country_id">156</field>
+                </record>
+        </data>
+</flectra>

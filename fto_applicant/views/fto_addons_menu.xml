@@ -1,0 +1,7 @@
+<flectra>
+     <!-- top level menu: no parent -->
+     <menuitem id="main_ftoaddons_menu" name="FTO Addons" />
+     <!-- A first level in the left side menu is needed
+                 before using action= attribute -->
+     <menuitem id="ftoaddons_menu" name="FTO Addons" parent="main_ftoaddons_menu" />
+</flectra>

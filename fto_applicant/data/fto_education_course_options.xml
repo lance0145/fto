@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <record id="education_course_na" model="res.partner.education.course">
+        <field name="x_name">N/A</field>
+    </record>
+
+    <record id="education_course_academic_dismissal" model="res.partner.education.course">
+        <field name="x_name">Academic Dismissal</field>
+    </record>
+
+    <record id="education_course_agriculture" model="res.partner.education.course">
+        <field name="x_name">Agriculture</field>
+    </record>
+
+    <record id="education_course_behavioral_science" model="res.partner.education.course">
+        <field name="x_name">Behavioral Science</field>
+    </record>
+
+    <record id="education_course_bs_information_systems" model="res.partner.education.course">
+        <field name="x_name">BS Information Systems</field>
+    </record>
+
+    <record id="education_course_bs_in_tourism" model="res.partner.education.course">
+        <field name="x_name">BS in Tourism</field>
+    </record>
+
+    <record id="education_course_bs_nursing" model="res.partner.education.course">
+        <field name="x_name">BS Nursing</field>
+    </record>
+
+    <record id="education_course_bs_office_administration" model="res.partner.education.course">
+        <field name="x_name">BS Office Administration</field>
+    </record>
+
+    <record id="education_course_bs_secondary_education_major" model="res.partner.education.course">
+        <field name="x_name">BS Secondary Education Major in English</field>
+    </record>
+
+    <record id="education_course_business" model="res.partner.education.course">
+        <field name="x_name">Business</field>
+    </record>
+
+    <record id="education_course_computer_programming" model="res.partner.education.course">
+        <field name="x_name">Computer Programming</field>
+    </record>
+
+    <record id="education_course_cruiseline_services" model="res.partner.education.course">
+        <field name="x_name">Cruiseline Services</field>
+    </record>
+
+    <record id="education_course_education" model="res.partner.education.course">
+        <field name="x_name">Education</field>
+    </record>
+
+    <record id="education_course_engineering" model="res.partner.education.course">
+        <field name="x_name">Engineering</field>
+    </record>
+
+    <record id="education_course_hospitality" model="res.partner.education.course">
+        <field name="x_name">Hospitality</field>
+    </record>
+
+    <record id="education_course_humanities" model="res.partner.education.course">
+        <field name="x_name">Humanities</field>
+    </record>
+
+    <record id="education_course_it" model="res.partner.education.course">
+        <field name="x_name">IT</field>
+    </record>
+
+    <record id="education_course_medicine" model="res.partner.education.course">
+        <field name="x_name">Medicine</field>
+    </record>
+
+    <record id="education_course_maritime" model="res.partner.education.course">
+        <field name="x_name">Maritime</field>
+    </record>
+
+    <record id="education_course_pharmacy" model="res.partner.education.course">
+        <field name="x_name">Pharmacy</field>
+    </record>
+
+    <record id="education_course_physical_therapy" model="res.partner.education.course">
+        <field name="x_name">Physical Therapy</field>
+    </record>
+
+    <record id="education_course_social_work" model="res.partner.education.course">
+        <field name="x_name">Social Work</field>
+    </record>
+
+    <record id="education_course_other" model="res.partner.education.course">
+        <field name="x_name">Other</field>
+    </record>
+
+</flectra>

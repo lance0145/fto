@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <record model="ir.ui.view" id="fto_applicant_name_form_view_inherited">
+        <field name="name">fto.applicant.name.form.view.inherited</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
+        <field name="arch" type="xml">
+            <label for="partner_name" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </label>
+            <field name="partner_name" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </field>
+
+            <field name="partner_id" position="attributes">
+                <attribute name="attrs">{'readonly': 1}</attribute>
+            </field>
+
+            <xpath expr="//h2[@class='o_row']" position="before">
+                <h2 class="o_row">
+                    <div>
+                        <label for="x_partner_name_first"/>
+                        <field name="x_partner_name_first"/>
+                    </div>
+                </h2>
+                <h2 class="o_row">
+                    <div>
+                        <label for="x_partner_name_middle"/>
+                        <field name="x_partner_name_middle"/>
+                    </div>
+                </h2>
+                <h2 class="o_row">
+                    <div>
+                        <label for="x_partner_name_last"/>
+                        <field name="x_partner_name_last"/>
+                    </div>
+                </h2>
+            </xpath>
+
+
+            <!-- linkedin url and years of experience -->
+            <xpath expr="//group/field[@name='reference']" position="after">
+                <field name="x_linkedin_url"/>
+                <field name="x_years_of_experience"/>
+                <field name="x_contact_address"/>
+                <field name="x_longitude_latitude"/>
+            </xpath>
+            <xpath expr="//group/field[@name='type_id']" position="after">
+                <field name="x_test_type_results"/>
+                <field name="x_test_speed_results"/>
+            </xpath>
+
+
+            <!-- Salary Expected -->
+            <label for="salary_expected" position="attributes">
+                <attribute name='string'>Salary Expected</attribute>
+            </label>
+
+            <!-- Salary Expected extra-->
+            <field name='salary_expected_extra' position='attributes'>
+                <attribute name='invisible'>1</attribute>
+            </field>
+
+            <!-- Salary previous -->
+            <xpath expr="//group/field[@name='availability']" position="before">
+                <field name="x_salary_previous"/>
+            </xpath>
+
+
+            <!-- Salary Proposed -->
+            <field name='salary_proposed' position='attributes'>
+                <attribute name='invisible'>1</attribute>
+            </field>
+            <field name='salary_proposed_extra' position='attributes'>
+                <attribute name='invisible'>1</attribute>
+            </field>
+            <label for="salary_proposed" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </label>
+
+
+            <xpath expr="/form/sheet/group" position="inside">
+
+                <div class="o_group_col_12 o_not_full oe_button_box">
+                    <button name="action_openOtherDetails" class="oe_stat_button pull-left" icon="fa-info-circle"
+                            type="object" help="Insert Other Details record with this applicant"
+                            style="width: 395px !important;margin-top: 50px;">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_text">Click here to add/update the details below</span>
+                        </div>
+                    </button>
+                </div>
+
+                <separator string="Education"/>
+                <field name="x_res_partner_education" widget="one2many_list">
+                    <tree editable="bottom">
+                        <field name="x_institution_name"/>
+                        <field name="x_year" position="attributes">
+                            <attribute name="date_format">%Y</attribute>
+                        </field>
+                        <field name="x_level_id"/>
+                        <field name="x_course_id"/>
+                    </tree>
+                </field>
+
+                <separator string="Identification"/>
+                <field name="x_res_partner_identification" widget="one2many_list">
+                    <tree editable="bottom">
+                        <field name="x_identification_id"/>
+                        <field name="x_value"/>
+                    </tree>
+                </field>
+
+                <separator string="Internet"/>
+                <field name="x_res_partner_internet" widget="one2many_list">
+                    <tree editable="bottom">
+                        <field name="x_provider_id" string="Provider"/>
+                        <field
+                                name="x_speed"
+                                domain="[
+                                        ('10', '1 - 10 Mbps'),
+                                        ('25', '11 - 25 Mbps'),
+                                        ('50', '26 - 50 Mbps'),
+                                        ('100', '51 - 100 Mbps'),
+                                        ('250', '101 - 250 Mbps'),
+                                        ('500', '251 - 500 Mbps'),
+                                        ('1000', '501 - 1000 Mbps'),
+                                        ('0', 'Unknown')
+                                    ]"/>
+                        <field name="x_plan_id" string="Plan"/>
+                        <field name="x_type_id" string="Type"/>
+                        <field name="x_rate" string="Rate"/>
+                        <field name="x_account_holder"/>
+                    </tree>
+                </field>
+            </xpath>
+
+
+            <!-- Remove medium_id and source_id -->
+            <field name='medium_id' position='attributes'>
+                <attribute name='invisible'>1</attribute>
+            </field>
+            <field name='source_id' position='attributes'>
+                <attribute name='invisible'>1</attribute>
+            </field>
+            <field name='type_id' position='attributes'>
+                <attribute name='invisible'>1</attribute>
+            </field>
+            <field name='partner_mobile' position='attributes'>
+                <attribute name='invisible'>1</attribute>
+            </field>
+
+        </field>
+    </record>
+
+
+    <template id="fto_assets_backend" name="hr_recruitment assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/fto_applicant/static/src/js/input_mask.js"></script>
+                
+            <script type="text/javascript" src="/fto_applicant/static/src/js/jobs_recruitment_form.js"></script>
+        </xpath>
+    </template>
+
+</flectra>

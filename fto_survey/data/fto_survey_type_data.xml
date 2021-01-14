@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <record id="english_proficiency_survey_type_default_record" model="survey.type">
+        <field name="name">English Proficiency</field>
+    </record>
+    <record id="computer_operation_survey_type_default_record" model="survey.type">
+        <field name="name">Computer Operation</field>
+    </record>
+    <record id="customer_service_survey_type_default_record" model="survey.type">
+        <field name="name">Customer Service</field>
+    </record>
+</flectra>

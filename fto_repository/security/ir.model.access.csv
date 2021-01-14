@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fto_attendance_user,access_fto_attendance_user,fto_attendance.model_hr_attendance,base.group_user,1,0,1,0
+access_fto_survey_user,access_fto_survey_user,fto_applicant.model_survey_survey,base.group_user,1,0,0,0
+access_fto_applicant_user,access_fto_applicant_user,fto_applicant.model_hr_applicant,base.group_user,1,0,0,0
+access_hr_employee_user,access_hr_employee_user,fto_attendance.model_hr_employee,base.group_user,1,0,0,0

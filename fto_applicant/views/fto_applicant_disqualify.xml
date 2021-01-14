@@ -1,0 +1,12 @@
+<flectra>
+    <record model="ir.ui.view" id="fto_applicant_disqualify">
+        <field name="name">fto.applicant.disqualify</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='archive_applicant']" position="after">
+                <button string="Disqualify" name="disqualify_applicant" type="object" attrs="{'invisible': [('active', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</flectra>

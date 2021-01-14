@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <record id="education_level_elementary" model="res.partner.education.level">
+        <field name="x_name">Elementary Level</field>
+    </record>
+
+    <record id="education_level_highschool" model="res.partner.education.level">
+        <field name="x_name">Highschool Level</field>
+    </record>
+
+    <record id="education_level_highschool_graduate" model="res.partner.education.level">
+        <field name="x_name">Highschool Graduate</field>
+    </record>
+
+    <record id="education_level_specialtyschool_ongoing" model="res.partner.education.level">
+        <field name="x_name">Specialty School On-going</field>
+    </record>
+
+    <record id="education_level_specialtyschool_completed" model="res.partner.education.level">
+        <field name="x_name">Specialty School Completed</field>
+    </record>
+
+    <record id="education_level_college_undergraduate" model="res.partner.education.level">
+        <field name="x_name">College Undergraduate</field>
+    </record>
+
+    <record id="education_level_college_graduate_2years" model="res.partner.education.level">
+        <field name="x_name">College Graduate 2 years</field>
+    </record>
+
+    <record id="education_level_college_graduate_4years" model="res.partner.education.level">
+        <field name="x_name">College Graduate 4 years</field>
+    </record>
+
+    <record id="education_level_masteral_ongoing" model="res.partner.education.level">
+        <field name="x_name">Masteral On-going</field>
+    </record>
+
+    <record id="education_level_masteral_completed" model="res.partner.education.level">
+        <field name="x_name">Masteral Completed</field>
+    </record>
+
+    <record id="education_level_doctorate_ongoing" model="res.partner.education.level">
+        <field name="x_name">Doctorate On-going</field>
+    </record>
+
+    <record id="education_level_doctrate_completed" model="res.partner.education.level">
+        <field name="x_name">Doctorate Completed</field>
+    </record>
+</flectra>

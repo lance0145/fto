@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+        <record model="ir.ui.view" id="shift_schedule_tree_view" >
+            <field name="name">shift.schedule.tree</field>
+            <field name="model">hr.shift.schedule</field>
+            <field name="arch" type="xml">
+                <tree string="Shift Schedule">
+                    <field name="x_employee_id"/>
+                    <field name="x_department_id"/>
+                    <field name="x_hours_from"/>
+                    <field name="x_hours_to"/>
+                    <field name="x_shift_type"/>
+                    <field name="x_hours_billable"/>
+                </tree> 
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="shift_schedule_form_view">
+            <field name="name">shift.schedule.form</field>
+            <field name="model">hr.shift.schedule</field>
+            <field name="arch" type="xml">
+                <form string="Shift Schedule Form">
+                    <sheet>
+                        <group>
+                            <field name="x_employee_id"/>
+                            <field name="x_department_id"/>
+                            <field name="x_hours_from"/>
+                            <field name="x_hours_to"/>
+                            <field name="x_shift_type"/>
+                            <field name="x_hours_billable" min="0" max="16"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_shift_schedule_filter" model="ir.ui.view">
+            <field name="name">shift.schedule.search</field>
+            <field name="model">hr.shift.schedule</field>
+            <field name="arch" type="xml">
+                <search string="Search Schedule">
+                    <field name="x_employee_id"/>
+                    <field name="x_department_id"/>
+                    <field name="x_shift_type"/>
+                </search>
+             </field>
+         </record>
+
+
+        <record model="ir.actions.act_window" id="fto_shift_schedule_action">
+            <field name="name">Shift Schedule</field>
+            <field name="res_model">hr.shift.schedule</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create new Shift Schedule
+                </p>
+            </field>
+        </record>
+
+
+        <!--the following menuitem should appear *after*
+             its parent ftoaddons_menu and *after* its
+             action identification_list_action-->
+        <menuitem id="shift_schedule_menu" name="Shift Management" parent="hr.menu_hr_root"
+                  action="fto_shift_schedule_action"/>
+</flectra>
+
+           <!--
+                    
+                                    <form>
+                    <sheet>
+                        <group>
+                            <field name="working_hours"/>
+                            <field name="department_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Shift Schedule">
+                                <field name="shift_schedule">
+                                    <tree>
+                                        <field name="display_name"/>
+                                        <field name="x_date"/>
+                                        <field name="x_hours_from"/>
+                                        <field name="x_hours_to"/>
+                                        <field name="x_shift_type"/>
+                                        <field name="x_hours_billable"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+
+            
+            <field name='hr_rel_schedule' widget='one2many_list'>
+                <tree editable="bottom">
+                    <field name='name'/>
+                    <field name='department_id'/>
+                </tree>
+            </field>
+
+                    --> 

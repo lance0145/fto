@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+	<template id="fto_applicant_job_apply_form_view_inherited" inherit_id="website_hr_recruitment.apply">
+		<!-- Hide submit button -->
+        <xpath expr="//span[@id='o_website_form_result']/.." position="attributes">
+        	<attribute name="hidden">hidden</attribute>
+        </xpath>
+
+        <!-- Hide partner_name field -->
+        <xpath expr="//input[@name='partner_name']/../.." position="attributes">
+        	<attribute name="hidden">hidden</attribute>
+        	<attribute name="class"/>
+        </xpath>
+		<input name="Resume" position="attributes">
+			<attribute name="required">required</attribute>
+		</input>
+
+		<input name="partner_name" position="attributes">
+			<attribute name="attrs">{'invisible': 1}</attribute>
+			<attribute name="required"/>
+			<attribute name="class"/>
+		</input>
+
+	    <xpath expr="//section[@id='forms']" position="before">
+
+			<t t-set="identifications_disp_bool" t-value="0"/>
+			<t t-foreach="identification_rec" t-as="identification">
+				<t t-if="check_country_rec == identification.sudo().x_country_id.code">
+					<span t-set="identifications_disp_bool" t-value="1"/>
+				</t>
+			</t>
+
+	    	<div id="wizard" class="form_wizard wizard_horizontal" style="display:none">
+				<ul class="wizard_steps" style="float: right;margin: 0;padding: 0;">
+					<li>
+						<a href="#step-1">
+						<span class="step_no">*</span>
+						<p style="color:#777; font-weight: 800;">Basic</p>
+						</a>
+					</li>
+					<li>
+						<a href="#step-2">
+						<span class="step_no">*</span>
+						<p style="color:#777; font-weight: 800;">Education</p>
+						</a>
+					</li>	
+					<t t-if="identifications_disp_bool == 1">		        
+						<li>
+							<a href="#step-3">
+							<span class="step_no">*</span>
+							<p style="color:#777; font-weight: 800;">Identification</p>
+							</a>
+						</li>
+					</t>
+					<t t-if="check_country_rec == 'PH'">	
+						<li>
+							<a href="#step-4">
+							<span class="step_no">*</span>
+							<p style="color:#777; font-weight: 800;">Internet</p>
+							</a>
+						</li>
+					</t>
+					<li>
+						<a href="#step-5">
+						<span class="step_no">*</span>
+						<p style="color:#777; font-weight: 800;">Assessments</p>
+						</a>
+					</li>
+				</ul>
+				<div id="step-1" class="col-md-12 col-sm-6 col-xs-12">
+					<!-- Basic Details-->
+				</div>
+				<div id="step-2" class="col-md-12 col-sm-6 col-xs-12">
+					<div class="row">
+		                <section id="education_details_content">
+		                    <form action="/website_form/" method="post" class="s_website_form form-horizontal container-fluid mt32" enctype="multipart/form-data" data-model_name="res.partner.education" t-att-data-form_field_partner_id="res_partner and res_partner.id or False">
+		                    	<input type="hidden" name="x_partner_id"/>
+								<div class="form-group o_horizontal_separator">
+						    		<h3>
+							    		<div class="col-md-3 col-sm-4 text-right">
+									    	<label>Education Details</label>
+									    </div>
+										<div class="col-md-7 col-sm-8">
+										</div>
+									</h3>
+							    </div>
+								<div class="form-group form-field">
+									<div class="col-md-3 col-sm-4 text-right">
+										<label class="control-label" for="institution_name">Institution Name</label>
+									</div>
+									<div class="col-md-7 col-sm-8">
+										<input type="text" class="form-control o_website_form_input" name="x_institution_name" placeholder="E.g University of San Agustin" required=""/>
+									</div>
+								</div>
+								<div class="form-group form-field">
+									<div class="col-md-3 col-sm-4 text-right">
+										<label class="control-label" for="education_year">Year Graduated / Attended</label>
+									</div>
+									<div class="col-md-7 col-sm-8">
+										<select name="x_year" class="form-control link-style">
+							    			<t t-foreach="x_year_rec" t-as="x_year_val">
+							    				<option t-esc="x_year_val_value" t-att-value="x_year_val"/>
+							    			</t>
+							    		</select>
+									</div>
+								</div>
+								<div class="form-group form-field">
+									<div class="col-md-3 col-sm-4 text-right">
+										<label class="control-label" for="education_level">Education Level</label>
+									</div>
+									<div class="col-md-7 col-sm-8">
+										<select name="x_level_id" class="form-control link-style"  required="">
+							    			<t t-foreach="education_level_rec" t-as="education_level">
+							    				<option t-esc="education_level.x_name" t-att-value="education_level.id"/>
+							    			</t>
+							    		</select>
+									</div>
+								</div>
+								<div class="form-group form-field">				
+									<div class="col-md-3 col-sm-4 text-right">
+										<label class="control-label" for="education_course">Field</label>
+									</div>
+									<div class="col-md-7 col-sm-8">
+										<select name="x_course_id" class="form-control link-style"  required="">
+							    			<t t-foreach="education_course_rec" t-as="education_course">
+							    				<option t-esc="education_course.x_name" t-att-value="education_course.id"/>
+							    			</t>
+							    		</select>
+									</div>
+								</div>
+								<div class="form-group" hidden="hidden">
+		                            <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+		                                <span class="btn btn-primary btn-lg o_website_form_send form_other_details">Submit</span>
+		                                <span id="o_website_form_result"></span>
+		                            </div>
+		                        </div>
+							</form>
+						</section>
+					</div>
+					<div class="row row_btnActions">
+						<button type="button" class="btn btn-lg btn-info previousStep">Previous</button>
+						<button type="button" id="validate_education" class="btn btn-lg btn-info">Next</button>
+					</div>
+				</div>
+				<t t-if="identifications_disp_bool == 1">
+					<div id="step-3" class="col-md-12 col-sm-6 col-xs-12">
+						<div class="row">
+			                <section id="identification_details_content">
+			                    <form action="/website_form/" method="post" class="s_website_form form-horizontal container-fluid mt32" enctype="multipart/form-data" data-model_name="res.partner.identification" t-att-data-form_field_partner_id="res_partner and res_partner.id or False">
+			                    	<input type="hidden" name="x_partner_id"/>
+									<div class="form-group o_horizontal_separator">
+							    		<h3>
+								    		<div class="col-md-3 col-sm-4 text-right">
+										    	<label>Identification</label>
+										    </div>
+											<div class="col-md-7 col-sm-8">
+											</div>
+										</h3>
+								    </div>
+
+					    			<t t-foreach="identification_rec" t-as="identification">
+									    <div class="form-group form-field">
+											<t t-if="check_country_rec == identification.sudo().x_country_id.code">
+	                                            <div class="col-md-3 col-sm-4 text-right">
+	                                                <label class="control-label" t-esc="identification.x_name"></label>
+	                                            </div>
+	                                            <div class="col-md-7 col-sm-8">
+	                                                <input type="text" class="form-control o_website_form_input" t-att-name="identification.id" t-att-id="identification.x_name" />
+	                                            </div>
+	                                        </t>
+										</div>
+					    			</t>
+					    			<div class="form-group" hidden="hidden">
+			                            <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+			                                <span class="btn btn-primary btn-lg o_website_form_send form_other_details">Submit</span>
+			                                <span id="o_website_form_result"></span>
+			                            </div>
+			                        </div>
+								</form>
+							</section>
+						</div>
+						<div class="row row_btnActions">
+							<button type="button" class="btn btn-lg btn-info previousStep">Previous</button>
+							<button type="button" class="btn btn-lg btn-info nextStep">Next</button>
+						</div>
+					</div>
+				</t>
+				<t t-if="check_country_rec == 'PH'">
+					<div id="step-4" class="col-md-12 col-sm-6 col-xs-12">
+						<div class="row">
+			                <section id="internet_details_content">
+			                    <form action="/website_form/" method="post" class="s_website_form form-horizontal container-fluid mt32" enctype="multipart/form-data" data-model_name="res.partner.internet" t-att-data-form_field_partner_id="res_partner and res_partner.id or False">
+			                    	<input type="hidden" name="x_partner_id"/>
+							    	<div class="form-group o_horizontal_separator">
+							    		<h3>
+								    		<div class="col-md-3 col-sm-4 text-right">
+										    	<label>Internet Details</label>
+										    </div>
+											<div class="col-md-7 col-sm-8">
+											</div>
+										</h3>
+								    </div>
+								    <div class="form-group form-field">				
+										<div class="col-md-3 col-sm-4 text-right">
+											<label class="control-label" for="internet_provider">Internet Service Provider</label>
+										</div>
+										<div class="col-md-7 col-sm-8">
+											<select name="x_provider_id" class="form-control link-style">
+								    			<t t-foreach="internet_provider_rec" t-as="provider">
+								    				<option t-esc="provider.x_name" t-att-value="provider.id"/>
+								    			</t>
+								    		</select>
+										</div>
+									</div>
+								    <div class="form-group form-field">				
+										<div class="col-md-3 col-sm-4 text-right">
+											<label class="control-label" for="internet_speed">Connection Speed</label>
+										</div>
+										<div class="col-md-7 col-sm-8">
+											<select name="x_speed" class="form-control link-style">
+								    			<t t-foreach="speed_rec" t-as="speed_val">
+								    				<option t-esc="speed_val_value" t-att-value="speed_val"/>
+								    			</t>
+								    		</select>
+										</div>
+									</div>
+								    <div class="form-group form-field">				
+										<div class="col-md-3 col-sm-4 text-right">
+											<label class="control-label" for="internet_plan">Internet Plan</label>
+										</div>
+										<div class="col-md-7 col-sm-8">
+											<select name="x_plan_id" class="form-control link-style">
+								    			<t t-foreach="plan_rec" t-as="plan_val">
+								    				<option t-esc="plan_val.x_name" t-att-value="plan_val.id"/>
+								    			</t>
+								    		</select>
+										</div>
+									</div>
+								    <div class="form-group form-field">				
+										<div class="col-md-3 col-sm-4 text-right">
+											<label class="control-label" for="internet_type">Internet Type</label>
+										</div>
+										<div class="col-md-7 col-sm-8">
+											<select name="x_type_id" class="form-control link-style">
+								    			<t t-foreach="type_rec" t-as="type_val">
+								    				<option t-esc="type_val.x_name" t-att-value="type_val.id"/>
+								    			</t>
+								    		</select>
+										</div>
+									</div>
+								    <div class="form-group form-field">				
+										<div class="col-md-3 col-sm-4 text-right">
+											<label class="control-label" for="x_rate">Monthly Rate</label>
+										</div>
+										<div class="col-md-7 col-sm-8">
+											<input type="number" class="form-control o_website_form_input" name="x_rate"/>
+										</div>
+									</div>
+								    <div class="form-group form-field">				
+										<div class="col-md-3 col-sm-4 text-right">
+											<label class="control-label" for="x_account_holder">Account Holder</label>
+										</div>
+										<div class="col-md-7 col-sm-8">
+											<input type="text" class="form-control o_website_form_input" name="x_account_holder"/>
+										</div>
+									</div>
+
+									<div class="form-group" hidden="hidden">
+			                            <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+			                                <span class="btn btn-primary btn-lg o_website_form_send form_other_details">Submit</span>
+			                                <span id="o_website_form_required_customult"></span>
+			                            </div>
+			                        </div>
+								</form>
+							</section>
+						</div>	
+						<div class="row row_btnActions">
+							<button type="button" class="btn btn-lg btn-info previousStep">Previous</button>
+							<button type="button" class="btn btn-lg btn-info nextStep">Next</button>
+						</div>
+					</div>
+				</t>
+				<div id="step-5" class="col-md-12 col-sm-6 col-xs-12">
+					<div class="row">
+		                <section id="assessments_details_content">
+		                    <form action="/website_form/" method="post" class="s_website_form form-horizontal container-fluid mt32" enctype="multipart/form-data" data-model_name="hr.applicant.assessment.test" t-att-data-form_field_partner_id="res_partner and res_partner.id or False">
+		                    	<input type="hidden" name="x_partner_id" />
+		                    	<input type="hidden" name="x_applicant_id" />
+						    	
+							    <div class="form-group form-field">				
+									<div class="col-md-3 col-sm-4 text-right">
+										<label class="control-label" for="test_type_results">Typing Test</label>
+									</div>
+									<div class="col-md-5 col-sm-6">
+										<input type="text" class="form-control o_website_form_input" name="test_type_results"/>
+									</div>
+									<div class="col-md-2 col-sm-2">
+										<button type="button" class="btn btn-lg btn-info" id="start_typing">Start Assessment</button>
+									</div>
+								</div>
+							    <div class="form-group form-field">				
+									<div class="col-md-3 col-sm-4 text-right">
+										<label class="control-label" for="test_speed_results">Speed Test</label>
+									</div>
+									<div class="col-md-5 col-sm-6">
+										<input type="text" class="form-control o_website_form_input" name="test_speed_results"/>
+									</div>
+									<div class="col-md-2 col-sm-2">
+										<button type="button" class="btn btn-lg btn-info " id="start_speed">Start Assessment</button>
+									</div>
+								</div>
+
+								<div class="assessment_iframe_container speedtestcontainer" style="display:none">
+									<iframe id="if2" height="100%" width="100%" style="visibility:visible" data-src="https://fast.com/" src="about:blank"></iframe>
+									<button type="button" class="btn btn-lg btn-info pull-right" id="complete_speed">Complete Assessment</button>
+								</div>
+
+								<div class="assessment_iframe_container typingtestcontainer" style="display:none">
+									<iframe id="if1" height="100%" width="100%" style="visibility:visible" data-src="https://www.typingtest.com/" src="about:blank"></iframe>
+									<button type="button" class="btn btn-lg btn-info pull-right" id="complete_typing">Complete Assessment</button>
+								</div>
+
+								<div class="form-group" hidden="hidden">
+		                            <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+		                                <span class="btn btn-primary btn-lg o_website_form_send form_other_details">Submit</span>
+		                                <span id="o_website_form_result"></span>
+		                            </div>
+		                        </div>
+							</form>
+						</section>
+					</div>
+					<div class="row row_btnActions">
+						<button type="button" class="btn btn-lg btn-info previousStep">Previous</button>
+						<button type="button" class="btn btn-lg btn-success" id="application_submit">Submit</button>
+					</div>
+				</div>
+			</div>
+	    </xpath>
+	    
+	    <xpath expr="//input[@name='partner_name']/../.." position="after">
+	    	<input type="hidden" name="job_id" t-att-value="job.id"/>
+	    	<input type="hidden" name="department_id" t-att-value="job.department_id.id"/>
+
+	    	<div class="form-group o_horizontal_separator">
+	    		<h3>
+		    		<div class="col-md-3 col-sm-4 text-right">
+				    	<label>Basic Details</label>
+				    </div>
+					<div class="col-md-7 col-sm-8">
+					</div>
+				</h3>
+		    </div>
+			<div class="form-group form-field o_website_form_required_custom">
+				<div class="col-md-3 col-sm-4 text-right">
+					<label class="control-label" for="x_partner_name_first">First Name</label>
+				</div>
+				<div class="col-md-7 col-sm-8">
+					<input type="text" class="form-control o_website_form_input" name="x_partner_name_first" required=""/>
+				</div>
+			</div>
+			<div class="form-group form-field o_website_form_required_custom">
+				<div class="col-md-3 col-sm-4 text-right">
+					<label class="control-label" for="x_partner_name_middle">Middle Name</label>
+				</div>
+				<div class="col-md-7 col-sm-8">
+					<input type="text" class="form-control o_website_form_input" name="x_partner_name_middle" required=""/>
+				</div>
+			</div>
+			<div class="form-group form-field o_website_form_required_custom">
+				<div class="col-md-3 col-sm-4 text-right">
+					<label class="control-label" for="x_partner_name_last">Last Name</label>
+				</div>
+				<div class="col-md-7 col-sm-8">
+					<input type="text" class="form-control o_website_form_input" name="x_partner_name_last" required=""/>
+				</div>
+			</div>
+	    </xpath>
+
+	    <xpath expr="//input[@name='Resume']/../.." position="after">
+	    	<div class="form-group o_horizontal_separator">
+	    		<h3>
+		    		<div class="col-md-3 col-sm-4 text-right">
+				    	<label>Extra Details</label>
+				    </div>
+					<div class="col-md-7 col-sm-8">
+					</div>
+				</h3>
+		    </div>
+			<div class="form-group form-field">
+				<div class="col-md-3 col-sm-4 text-right">
+					<label class="control-label" for="x_linkedin_url">LinkedIn URL</label>
+				</div>
+				<div class="col-md-7 col-sm-8">
+					<input type="text" class="form-control o_website_form_input" name="x_linkedin_url" placeholder="E.g https://ph.linkedin.com/in/juan-dela-cruz-1318a5105"/>
+				</div>
+			</div>
+			<div class="form-group form-field">
+				<div class="col-md-3 col-sm-4 text-right">
+					<label class="control-label" for="x_years_of_experience">Years of Experience</label>
+				</div>
+				<div class="col-md-7 col-sm-8">
+					<input type="number" class="form-control o_website_form_input" name="x_years_of_experience" placeholder="E.g 5" required=""/>
+				</div>
+			</div>
+			<div class="form-group form-field">
+				<div class="col-md-3 col-sm-4 text-right">
+					<label class="control-label" for="x_salary_previous">Previous Salary</label>
+				</div>
+				<div class="col-md-7 col-sm-8">
+					<input type="number" class="form-control o_website_form_input" name="x_salary_previous" placeholder="E.g 15000" required=""/>
+				</div>
+			</div>
+			<div class="form-group form-field">
+				<div class="col-md-3 col-sm-4 text-right">
+					<label class="control-label" for="salary_expected">Expected Salary</label>
+				</div>
+				<div class="col-md-7 col-sm-8">
+					<input type="number" class="form-control o_website_form_input" name="salary_expected" placeholder="E.g 20000" required=""/>
+				</div>
+			</div>
+			<div class="form-group form-field">
+				<div class="col-md-3 col-sm-4 text-right">
+					<label class="control-label" for="x_contact_address">Your Street Addess</label>
+				</div>
+				<div class="col-md-7 col-sm-8">
+					<input type="text" class="form-control o_website_form_input" name="x_contact_address" placeholder="E.g M.H del Pilart Street, Molo, Iloilo City" required=""/>
+				</div>
+			</div>
+			<div class="form-group form-field">
+				<div class="col-md-3 col-sm-4 text-right">
+					<label class="control-label" for="x_longitude_latitude">Coordinates</label>
+				</div>
+				<div class="col-md-7 col-sm-8">
+					<input type="text" class="form-control o_website_form_input" name="x_longitude_latitude" placeholder="Choose your coordinates on the map below." required="" readonly=""/>
+				</div>
+			</div>
+			<div class="form-group text-center">		
+				<h4 class="mapIns">Find your address and click the map to populate the field above.</h4>     	
+				<div id="vl"></div>
+				<div id="map" class="col-md-6 col-sm-6 col-xs-12 form-group text-right"></div> 
+			</div>
+
+		    <div class="row row_btnActions">
+				<button type="button" class="btn btn-info btn-lg previousStep">Previous</button>
+				<button type="button" id="validate_basic" class="btn btn-lg btn-info">Next</button>
+			</div>
+	    </xpath>
+
+	    <xpath expr="." position="inside">
+
+			<link href="/fto_applicant/static/src/css/wizard_steps.css" rel="stylesheet" type="text/css"/>
+			<link href="/fto_applicant/static/src/css/styles.css" rel="stylesheet" type="text/css"/>
+	    	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+	        <script src='https://unpkg.com/mapbox@1.0.0-beta9/dist/mapbox-sdk.min.js'></script>
+	        <link
+	        rel="stylesheet"
+	        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+	        type="text/css"
+	        />
+	        <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
+	        <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+	        <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+	        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+	        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+            <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+            <script src='https://unpkg.com/mapbox@1.0.0-beta9/dist/mapbox-sdk.min.js'></script>
+            <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css" />
+            <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
+            <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+            <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+            <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+            <script type="text/javascript" src="/fto_applicant/static/src/js/mapbox.js"></script>
+            <!-- Script needed for wizard steps-->
+            <script type="text/javascript" src="/fto_applicant/static/vendor/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+            <script type="text/javascript" src="/fto_applicant/static/src/js/wizard_steps.js"></script>
+
+			<!-- Script needed for getting typing and speed test result-->
+			<script type="text/javascript" src="/fto_applicant/static/src/js/getDataTypingFast.js"></script>
+
+			<!-- Script needed for inputmasks-->
+            <script type="text/javascript" src="/fto_applicant/static/src/js/input_mask.js"></script>
+
+            <script type="text/javascript" src="/fto_applicant/static/src/js/web_form.js"></script>
+
+
+        </xpath>
+    </template>
+</flectra>

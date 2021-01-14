@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+	<record id="attendance_attendance_type_default_record" model="hr.attendance.type">
+		<field name="x_name">Attendance</field>
+		<field name="x_description">Attendance</field>
+	</record>
+	<record id="overtime_attendance_type_default_record" model="hr.attendance.type">
+		<field name="x_name">Overtime</field>
+		<field name="x_description">Overtime</field>
+	</record>
+	<record id="rest_day_attendance_type_default_record" model="hr.attendance.type">
+		<field name="x_name">Rest Day</field>
+		<field name="x_description">Rest Day</field>
+	</record>
+	<record id="leave_request_attendance_type_default_record" model="hr.attendance.type">
+		<field name="x_name">Leave Request</field>
+		<field name="x_description">Leave Request</field>
+	</record>
+	<record id="leave_transfer_attendance_type_default_record" model="hr.attendance.type">
+		<field name="x_name">Leave Transfer</field>
+		<field name="x_description">Leave Transfer</field>
+	</record>
+	<record id="dispute_attendance_type_default_record" model="hr.attendance.type">
+		<field name="x_name">Dispute</field>
+		<field name="x_description">Dispute</field>
+	</record>
+	<record id="dispute_attendance_type_default_record" model="hr.attendance.type">
+		<field name="x_name">Dispute</field>
+		<field name="x_description">Dispute</field>
+	</record>
+	<record id="early_out_duty_attendance_type_default_record" model="hr.attendance.type">
+		<field name="x_name">Early Out Duty</field>
+		<field name="x_description">Early Out Duty</field>
+	</record>
+</flectra>

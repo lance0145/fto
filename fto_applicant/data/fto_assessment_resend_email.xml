@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <!--Assessment send invitation by email: template -->
+        <record id="email_template_resend_assessment" model="mail.template">
+            <field name="name">Assessment - Re-Send by Email</field>
+            <field name="model_id" ref="survey.model_survey_survey" />
+            <field name="auto_delete" eval="False" />
+            <field name="body_html">
+                <![CDATA[
+<p>Hello </p>
+<p>Please click the link below to start or continue your assessment.</p>
+<p><a style="margin-left: 85px; padding:5px 10px; border-radius: 3px; background-color:#009efb; text-align:center; text-decoration:none; color:#F7FBFD;" href="__URL__">${object.title}</a></p>
+<p>Thanks!</p>
+                ]]>
+            </field>
+        </record>
+    </data>
+</flectra>

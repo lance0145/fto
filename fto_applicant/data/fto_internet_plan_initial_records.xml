@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+        <record id="prepaid_internet_plan_default_record" model="res.partner.internet.plan">
+                <field name="x_name">Prepaid</field>
+                <field name="x_description">Prepaid</field>
+        </record>
+
+        <record id="postpaid_internet_plan_default_record" model="res.partner.internet.plan">
+                <field name="x_name">Postpaid</field>
+                <field name="x_description">Postpaid</field>
+        </record>
+</flectra>

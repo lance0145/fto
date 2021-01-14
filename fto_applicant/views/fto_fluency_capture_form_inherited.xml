@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <record model="ir.ui.view" id="fto_fluency_capture_btn">
+        <field name="name">fto.fluency.capture.btn</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_makeMeeting']" position="before">
+                <button name="action_openFluency" class="oe_stat_button" icon="fa-microphone" type="object" help="Insert Fluency record with this applicant">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Fluency</span>
+                        </div>
+                </button>
+            </xpath>
+            <xpath expr="//field[@name='job_id']" position="attributes">
+                <attribute name="attrs">{'required': 1}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="fto_fluency_capture_form_view">
+        <field name="name">fto_applicant_fto_fluency_capture_form_view form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Fluency Form">
+                <sheet>
+                    <group>
+                        <h1><field name="name" readonly="1"/></h1>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="x_lnd_english_fluency"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="fto_fluency_capture_form_action_list_modal">
+        <field name="name">Fluency Capture Form</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="fto_fluency_form">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="fto_fluency_capture_form_view"/>
+        <field name="act_window_id" ref="fto_fluency_capture_form_action_list_modal"/>
+    </record>
+
+</flectra>
+
+

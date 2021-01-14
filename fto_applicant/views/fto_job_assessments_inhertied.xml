@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+
+    <!-- inherited form view -->
+    <record model="ir.ui.view" id="fto_job_assessments_inhertied">
+        <field name="name">fto.job.assessments.inhertied</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form" />
+        <field name="arch" type="xml">
+	        <xpath expr="//field[@name='no_of_recruitment']" position="after">
+			   	<field name="x_job_assessment_ids"/>
+	        </xpath>
+	    </field>
+	</record>
+</flectra> 

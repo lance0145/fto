@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <function model="ir.model.fields" name="formbuilder_whitelist">
+            <value>hr.applicant</value>
+            <value eval="[
+                'x_longitude_latitude',
+                'x_contact_address',
+                'description',
+                'email_from',
+                'partner_name',
+                'x_partner_name_first',
+                'x_partner_name_middle',
+                'x_partner_name_last',
+                'partner_phone',
+                'job_id',
+                'department_id',
+                'website_id',
+                'x_linkedin_url',
+                'x_years_of_experience',
+                'x_salary_previous',
+                'salary_expected',
+            ]"/>
+        </function>
+    </data>
+
+    <data>
+        <record id="fto_applicant.model_res_partner_education" model="ir.model">
+            <field name="website_form_default_field_id" ref="fto_applicant.field_res_partner_education_x_institution_name" />
+            <field name="website_form_access">True</field>
+            <field name="website_form_label">Education</field>
+        </record>
+        <function model="ir.model.fields" name="formbuilder_whitelist">
+            <value>res.partner.education</value>
+            <value eval="[
+                'x_partner_id',
+                'x_institution_name',
+                'x_year',
+                'x_level_id',
+                'x_course_id',
+            ]"/>
+        </function>
+    </data>
+
+    <data>
+        <record id="fto_applicant.model_res_partner_internet" model="ir.model">
+            <field name="website_form_default_field_id" ref="fto_applicant.field_res_partner_internet_x_details" />
+            <field name="website_form_access">True</field>
+            <field name="website_form_label">Internet</field>
+        </record>
+        <function model="ir.model.fields" name="formbuilder_whitelist">
+            <value>res.partner.internet</value>
+            <value eval="[
+                'x_speed',
+                'x_partner_id',
+                'x_provider_id',
+                'x_plan_id',
+                'x_type_id',
+                'x_rate',
+                'x_account_holder',
+            ]"/>
+        </function>
+    </data>
+
+    <data>
+        <record id="fto_applicant.model_res_partner_identification" model="ir.model">
+            <field name="website_form_default_field_id" ref="fto_applicant.field_res_partner_identification_x_identification_id" />
+            <field name="website_form_access">True</field>
+            <field name="website_form_label">Identification</field>
+        </record>
+        <function model="ir.model.fields" name="formbuilder_whitelist">
+            <value>res.partner.internet</value>
+                <value eval="[
+                    'x_partner_id',
+                    'x_identification_id',
+                    'x_value',
+            ]"/>
+        </function>
+    </data>
+</flectra>

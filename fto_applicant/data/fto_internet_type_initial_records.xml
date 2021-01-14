@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+        <record id="cable_internet_type_default_record" model="res.partner.internet.type">
+                <field name="x_name">Cable</field>
+                <field name="x_description">Cable</field>
+        </record>
+
+        <record id="dsl_internet_type_default_record" model="res.partner.internet.type">
+                <field name="x_name">DSL</field>
+                <field name="x_description">DSL</field>
+        </record>
+
+        <record id="fiber_internet_type_default_record" model="res.partner.internet.type">
+                <field name="x_name">Fiber</field>
+                <field name="x_description">Fiber</field>
+        </record>
+
+        <record id="prepaid_wifi_internet_type_default_record" model="res.partner.internet.type">
+                <field name="x_name">Prepaid WiFi</field>
+                <field name="x_description">Prepaid WiFi</field>
+        </record>
+
+        <record id="ultera_internet_type_default_record" model="res.partner.internet.type">
+                <field name="x_name">Ultera</field>
+                <field name="x_description">Ultera</field>
+        </record>
+
+        <record id="other_internet_type_default_record" model="res.partner.internet.type">
+                <field name="x_name">Other</field>
+                <field name="x_description">Other</field>
+        </record>
+</flectra>

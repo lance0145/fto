@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+
+    <!-- inherited form view -->
+    <record model="ir.ui.view" id="fto_job_branch_inherited">
+        <field name="name">fto.job.branch.inherited</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_job_survey" />
+        <field name="arch" type="xml">
+            <field name="address_id" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </field>
+	        <xpath expr="//field[@name='address_id']" position="after">
+			   	<field name="x_branch_id"/>
+	        </xpath>
+	    </field>
+	</record>
+
+    <!-- Change the display of address in the job posting list to reference from the branch-->
+    <template id="fto_applicant_job_list_address_inherited" inherit_id="website_hr_recruitment.index">
+        <xpath expr="//span[@t-field='job.address_id']" position="attributes">
+            <attribute name="hidden">hidden</attribute>
+        </xpath>
+
+        <xpath expr="//span[@t-field='job.address_id']" position="after">
+            <span t-if="job.x_branch_id">
+                <div>
+                    <i class="fa fa-map-marker fa-fw"> </i>
+                    <span itemprop="streetAddress"> 
+                        <span t-field="job.x_branch_id.street"></span>, <span t-field="job.x_branch_id.city"></span> <span t-field="job.x_branch_id.state_id.code"></span> <span t-field="job.x_branch_id.zip"></span>, <span t-field="job.x_branch_id.country_id.name"></span> 
+                    </span>
+                </div>
+            </span>
+        </xpath>
+    </template>
+
+    <template id="fto_applicant_job_detail_address_inherited" inherit_id="website_hr_recruitment.detail">
+        <xpath expr="//h4[@t-field='job.address_id']" position="attributes">
+            <attribute name="hidden">hidden</attribute>
+        </xpath>
+
+        <xpath expr="//h4[@t-field='job.address_id']" position="after">
+             <h4 class="mt0" t-if="job.sudo().x_branch_id">
+                <i class="fa fa-map-marker fa-fw"> </i>
+                <span itemprop="streetAddress"> 
+                    <span t-field="job.sudo().x_branch_id.street"></span>, <span t-field="job.sudo().x_branch_id.city"></span> <span t-field="job.sudo().x_branch_id.state_id.code"></span> <span t-field="job.sudo().x_branch_id.zip"></span>, <span t-field="job.sudo().x_branch_id.country_id.name"></span> 
+                </span>
+            </h4>
+        </xpath>
+    </template>
+
+</flectra> 

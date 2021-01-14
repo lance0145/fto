@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+	<record model="ir.ui.view" id="fto_survey_name_form_view_inherited">
+		<field name="name">fto.survey.name.form.view.inherited</field>
+		<field name="model">survey.user_input</field>
+		<field name="inherit_id" ref="survey.survey_user_input_form"/>
+		<field name="arch" type="xml">
+		<xpath expr="//field[@name='quizz_score']" position="after">
+			<field name="x_quizz_max_score"/>
+			<field name="x_quizz_score_percentage"/>
+		</xpath>
+		
+		
+			<field name="quizz_score" position="attributes">
+				<attribute name="groups"></attribute>
+			</field>
+
+			<field name="quizz_mark" position="attributes">
+				<attribute name="groups"></attribute>
+			</field>
+
+			<field name="token" position="attributes">
+				<attribute name="groups"></attribute>
+			</field>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="fto_survey_name_tree_view_inherited">
+		<field name="name">fto.survey.name.tree.view.inherited</field>
+		<field name="model">survey.user_input</field>
+		<field name="inherit_id" ref="survey.survey_user_input_tree"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='quizz_score']" position="after">
+				<field name="x_quizz_max_score"/>
+				<field name="x_quizz_score_percentage"/>
+			</xpath>
+		</field>
+	</record>
+
+	
+	<record model="ir.ui.view" id="fto_survey_form_view_inherited">
+	    <field name="name">fto.survey.form.view.inherited</field>
+	    <field name="model">survey.survey</field>
+	    <field name="inherit_id" ref="survey.survey_form"/>
+	    <field name="arch" type="xml">
+            <field name="quizz_mode" position="attributes">
+                <attribute name="groups"></attribute>
+            </field>
+	    </field>
+	</record>
+
+
+	<record model="ir.ui.view" id="fto_survey_form_line_view_inherited">
+	    <field name="name">fto.survey.form.line.view.inherited</field>
+	    <field name="model">survey.user_input_line</field>
+	    <field name="inherit_id" ref="survey.survey_user_input_line_form"/>
+	    <field name="arch" type="xml">
+            <field name="quizz_mark" position="attributes">
+                <attribute name="groups"></attribute>
+            </field>
+	    </field>
+	</record>
+
+	<record model="ir.ui.view" id="fto_survey_type_enumeration_form_view_inherited">
+		<field name="name">fto.survey.form.type.enumeration.inherited</field>
+		<field name="model">survey.survey</field>
+		<field name="inherit_id" ref="survey.survey_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='title']" position="after">
+				<group>
+					<field name="x_type_id"/>
+					<field name="x_enumeration"  readonly="1" force_save="1"/>
+				</group>
+			</xpath>
+		</field>
+	</record>
+</flectra> 

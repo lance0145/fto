@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+	<record id="pending_attendance_status_default_record" model="hr.attendance.status">
+		<field name="x_name">Pending</field>
+		<field name="x_description">Pending</field>
+	</record>
+	<record id="approved_attendance_status_default_record" model="hr.attendance.status">
+		<field name="x_name">Approved</field>
+		<field name="x_description">Approved</field>
+	</record>
+	<record id="cancelled_attendance_status_default_record" model="hr.attendance.status">
+		<field name="x_name">Cancelled</field>
+		<field name="x_description">Cancelled</field>
+	</record>
+	<record id="rejected_attendance_status_default_record" model="hr.attendance.status">
+		<field name="x_name">Rejected</field>
+		<field name="x_description">Rejected</field>
+	</record>
+</flectra>

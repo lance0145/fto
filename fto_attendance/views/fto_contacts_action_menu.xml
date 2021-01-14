@@ -1,0 +1,11 @@
+<flectra>
+    <data>        
+        <!-- <act_window id="action_submitted_menu"
+            name="Submitted"          
+            src_model="hr.attendance"
+            res_model="hr.attendance"
+            view_type="form" view_mode="form"
+            key2="client_action_multi" target="new"
+        /> -->
+    </data>
+</flectra>

@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<flectra>
+	<data>
+		<record id="form_application_coa" model="ir.ui.view">
+			<field name="name">form.application.coa</field>
+			<field name="model">hr.attendance</field>
+			<field name="arch" type="xml">
+				<form create="true">
+					<sheet>
+						<div class="oe_title">
+							<h1>Certificate of Attendance - <field name="user_id" readonly="True"/></h1>
+						</div>
+						<div class="oe_button_box" name="button_box">
+							<div name="approved_application" class="oe_stat_button btn btn-lg" icon="fa-check text-success">
+								<div class="fa fa-fw o_button_icon fa-check"></div>
+								<field name="approved_count" string="Approved" widget="statinfo"/>
+							</div>
+							<div name="rejected_application" class="oe_stat_button btn btn-lg" icon="fa-ban">
+								<div class="fa fa-fw o_button_icon fa-ban"></div>
+								<field name="rejected_count" string="Rejected" widget="statinfo"/>
+							</div>
+							<div name="cancelled_application" class="oe_stat_button btn btn-lg" icon="fa-times">
+								<div class="fa fa-fw o_button_icon fa-times"></div>
+								<field name="cancelled_count" string="Cancelled" widget="statinfo"/>
+							</div>
+							<div name="pending_application" class="oe_stat_button btn btn-lg" icon="fa-clock-o">
+								<div class="fa fa-fw o_button_icon fa-clock-o"></div>
+								<field name="pending_count" string="Pending" widget="statinfo"/>
+							</div>
+						</div>
+						<group name="application_fields">
+							<field name="employee_id" groups="hr.group_hr_manager"/>
+							<field name="x_tracking_id" domain="[('x_name','!=','BioMetrics')]"/>
+							<field name="check_in"/>
+							<field name="check_out"/>
+							<field name="company_id" readonly="True"/>
+							<field name="department_id" readonly="True"/>
+						</group>
+						<group>
+							<field name="shift_ids" string="Schedule" readonly="True">
+								<tree limit="11">
+									<field name="x_hours_from"/>
+									<field name="x_hours_to"/>
+									<field name="x_shift_type"/>
+									<field name="last_status"/>
+								</tree>
+							</field>
+						</group>
+							
+						<footer>
+							<button string="Create" type="object" name="submit_application" confirm="Create Attendance?"/>
+						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="form_application_ot" model="ir.ui.view">
+			<field name="name">form.application.ot</field>
+			<field name="model">hr.attendance</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<div class="oe_title">
+							<h1>Overtime - <field name="user_id" readonly="True"/></h1>
+						</div>
+						<group>
+							<group name="application_fields">
+								<field name="employee_id" groups="hr.group_hr_manager"/>
+								<field name="check_in"/>
+								<field name="check_out"/>
+								<field name="company_id" readonly="True"/>
+								<field name="department_id" readonly="True"/>
+							</group>
+							<group>
+								<field name="x_calendar_attendance_id" string="Schedule" readonly="True">
+									<tree limit="7">
+										<field name="attendance_date"/>
+										<field name="shift_from"/>
+										<field name="shift_to"/>
+										<field name="type_id"/>
+										<!--field name="last_status"/-->
+									</tree>
+								</field>
+							</group>
+						</group>
+
+						<footer>
+							<button string="Create" type="object" name="submit_application" confirm="Create Attendance?"/>
+						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+
+		<record id="form_application_leave" model="ir.ui.view">
+			<field name="name">form.application.leave</field>
+			<field name="model">hr.attendance</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<div class="oe_title">
+							<h1>Leave - <field name="user_id" readonly="True"/></h1>
+						</div>
+						<group>
+							<group name="application_fields">
+								<field name="employee_id" groups="hr.group_hr_manager"/>
+								<field name="check_in"/>
+								<field name="check_out"/>
+								<field name="company_id" readonly="True"/>
+								<field name="department_id" readonly="True"/>
+							</group>
+							<group>
+								<field name="x_calendar_attendance_id" string="Schedule" readonly="True">
+									<tree limit="7">
+										<field name="attendance_date"/>
+										<field name="shift_from"/>
+										<field name="shift_to"/>
+										<field name="type_id"/>
+										<!--field name="last_status"/-->
+									</tree>
+								</field>
+							</group>
+						</group>
+
+						<footer>
+							<button string="Create" type="object" name="submit_application" confirm="Create Attendance?"/>
+						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="form_application_restday" model="ir.ui.view">
+			<field name="name">form.application.restday</field>
+			<field name="model">hr.attendance</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<div class="oe_title">
+							<h1>Overtime - <field name="user_id" readonly="True"/></h1>
+						</div>
+						<group>
+							<group name="application_fields">
+								<field name="employee_id" groups="hr.group_hr_manager"/>
+								<field name="check_in"/>
+								<field name="check_out"/>
+								<field name="company_id" readonly="True"/>
+								<field name="department_id" readonly="True"/>
+							</group>
+							<group>
+								<field name="x_calendar_attendance_id" string="Schedule" readonly="True">
+									<tree limit="7">
+										<field name="attendance_date"/>
+										<field name="shift_from"/>
+										<field name="shift_to"/>
+										<field name="type_id"/>
+										<!--field name="last_status"/-->
+									</tree>
+								</field>
+							</group>
+						</group>
+
+						<footer>
+							<button string="Create" type="object" name="submit_application" confirm="Create Attendance?"/>
+						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="form_application_earlyout" model="ir.ui.view">
+			<field name="name">form.application.earlyout</field>
+			<field name="model">hr.attendance</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<div class="oe_title">
+							<h1>Early Out - <field name="user_id" readonly="True"/></h1>
+						</div>
+						<group>
+							<group name="application_fields">
+								<field name="employee_id" groups="hr.group_hr_manager"/>
+								<field name="check_in"/>
+								<field name="check_out"/>
+								<field name="company_id" readonly="True"/>
+								<field name="department_id" readonly="True"/>
+							</group>
+							<group>
+								<field name="x_calendar_attendance_id" string="Schedule" readonly="True">
+									<tree limit="7">
+										<field name="attendance_date"/>
+										<field name="shift_from"/>
+										<field name="shift_to"/>
+										<field name="type_id"/>
+										<!--field name="last_status"/-->
+									</tree>
+								</field>
+							</group>
+						</group>
+
+						<footer>
+							<button string="Create" type="object" name="submit_application" confirm="Create Attendance?"/>
+						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="form_application_leavetransfer" model="ir.ui.view">
+			<field name="name">form.application.leavetransfer</field>
+			<field name="model">hr.attendance</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<div class="oe_title">
+							<h1>Leave Trasnfer - <field name="user_id" readonly="True"/></h1>
+						</div>
+						<group>
+							<group name="application_fields">
+								<field name="employee_id" groups="hr.group_hr_manager"/>
+								<field name="check_in"/>
+								<field name="check_out"/>
+								<field name="company_id" readonly="True"/>
+								<field name="department_id" readonly="True"/>
+							</group>
+							<group>
+								<field name="x_calendar_attendance_id" string="Schedule" readonly="True">
+									<tree limit="7">
+										<field name="attendance_date"/>
+										<field name="shift_from"/>
+										<field name="shift_to"/>
+										<field name="type_id"/>
+										<!--field name="last_status"/-->
+									</tree>
+								</field>
+							</group>
+						</group>
+
+						<footer>
+							<button string="Create" type="object" name="submit_application" confirm="Create Attendance?"/>
+						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="form_application_dispute" model="ir.ui.view">
+			<field name="name">form.application.dispute</field>
+			<field name="model">hr.attendance</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<div class="oe_title">
+							<h1>Dispute - <field name="user_id" readonly="True"/></h1>
+						</div>
+						<group>
+							<group name="application_fields">
+								<field name="employee_id" groups="hr.group_hr_manager"/>
+								<field name="check_in"/>
+								<field name="check_out"/>
+								<field name="company_id" readonly="True"/>
+								<field name="department_id" readonly="True"/>
+							</group>
+							<group>
+								<field name="x_calendar_attendance_id" string="Schedule" readonly="True">
+									<tree limit="7">
+										<field name="attendance_date"/>
+										<field name="shift_from"/>
+										<field name="shift_to"/>
+										<field name="type_id"/>
+										<!--field name="last_status"/-->
+									</tree>
+								</field>
+							</group>
+						</group>
+
+						<footer>
+							<button string="Create" type="object" name="submit_application" confirm="Create Attendance?"/>
+						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+
+		<!-- FLE-46 : override the automatically generated list view for courses -->
+		<record model="ir.ui.view" id="application_center_tree_view">
+			<field name="name">application.center.tree</field>
+			<field name="model">hr.attendance</field>
+			<field name="arch" type="xml">
+				<tree string="Application Center Tree" create="false">
+					<field name="employee_id"/>
+					<field name="department_id"/>
+					<field name="x_type_id"/>
+					<field name="check_in"/>
+					<field name="check_out"/>
+					<field name="shift_schedule"/>
+					<field name="attendance_schedule"/>
+					<field name="application_schedule"/>
+					<field name="company_id"/>
+					<field name="department_id"/>
+					<field name="x_status_id" string="Status"/>
+					<button
+						name="show_dialog"
+						type="object" 
+						string="Cancel"
+						class="oe_highlight"
+						attrs="{'invisible': [('x_status_id', 'not in', [1,2])]}"
+						/>
+				</tree>
+			</field>
+		</record>
+
+        <!--FLE-46 : Wizard/Dialog box for confirmation-->
+		<record id="fto_dialog_cancel_application" model="ir.ui.view">
+			<field name="name">Application Center</field>
+			<field name="model">hr.attendance</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="FTO" version="6.0" create="false" edit="false">
+					<separator string="Application Center"/>
+					<p>Are you sure you want to cancel?</p>
+					<newline/>
+					<separator/>
+					<footer>
+						<button name="action_cancel"  type="object" string="Yes" class="oe_highlight"/>                             
+						<button special="cancel" string="No"/>                    
+					</footer>                                    
+				</form>
+			</field>
+		</record>
+
+		<!--FLE-46 : Action menu item-->
+		<act_window id="menu_item_cancel_bulk_application"
+            name="Cancel"           
+            src_model="hr.attendance"
+            res_model="hr.attendance"
+            view_type="form" 
+            view_mode="form"
+            view_id="fto_dialog_cancel_application"
+            target="new"    
+            key2="client_action_multi"
+            multi="True"/>
+
+		<act_window id="action_approved_menu"
+					name="View - Approved"
+					src_model="hr.attendance"
+					res_model="hr.attendance"
+					domain="[('x_status_id','=', 2)]"
+					view_mode="tree"
+					key2="client_action_multi" target="current"/>
+
+		<act_window id="action_pending_menu"
+					name="View - Pending"
+					src_model="hr.attendance"
+					res_model="hr.attendance"
+					domain="[('x_status_id','=', 1)]"
+					view_mode="tree"
+					key2="client_action_multi" target="current"/>
+
+		<act_window id="action_cancelled_menu"
+					name="View - Cancelled"
+					src_model="hr.attendance"
+					res_model="hr.attendance"
+					domain="[('x_status_id','=', 3)]"
+					view_mode="tree"
+					key2="client_action_multi" target="current"/>
+
+		<act_window id="action_rejected_menu"
+					name="View - Rejected"
+					src_model="hr.attendance"
+					res_model="hr.attendance"
+					domain="[('x_status_id','=', 4)]"
+					view_mode="tree"
+					key2="client_action_multi" target="current"/>					
+
+
+		<record model="ir.actions.act_window" id="action_application_center_coa">
+			<field name="name">Certificate of Attendance</field>
+			<field name="res_model">hr.attendance</field>
+			<field name="view_mode">form</field>
+			<field name="target">inline</field>
+			<field name="view_id" ref="form_application_coa"/>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_application_center_ot">
+			<field name="name">Overtime</field>
+			<field name="res_model">hr.attendance</field>
+			<field name="view_mode">form</field>
+			<field name="target">inline</field>
+			<field name="view_id" ref="form_application_ot"/>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_application_center_leave">
+			<field name="name">Leave</field>
+			<field name="res_model">hr.attendance</field>
+			<field name="view_mode">form</field>
+			<field name="target">inline</field>
+			<field name="view_id" ref="form_application_leave"/>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_application_center_restday">
+			<field name="name">Rest Day</field>
+			<field name="res_model">hr.attendance</field>
+			<field name="view_mode">form</field>
+			<field name="target">inline</field>
+			<field name="view_id" ref="form_application_restday"/>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_application_center_earlyout">
+			<field name="name">Early Out</field>
+			<field name="res_model">hr.attendance</field>
+			<field name="view_mode">form</field>
+			<field name="target">inline</field>
+			<field name="view_id" ref="form_application_earlyout"/>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_application_center_leavetransfer">
+			<field name="name">Leave Transfer</field>
+			<field name="res_model">hr.attendance</field>
+			<field name="view_mode">form</field>
+			<field name="target">inline</field>
+			<field name="view_id" ref="form_application_leavetransfer"/>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_application_center_dispute">
+			<field name="name">Dispute</field>
+			<field name="res_model">hr.attendance</field>
+			<field name="view_mode">form</field>
+			<field name="target">inline</field>
+			<field name="view_id" ref="form_application_dispute"/>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_application_center_tree">
+			<field name="name">Submitted Applications</field>
+			<field name="res_model">hr.attendance</field>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="application_center_tree_view"/>
+		</record>
+
+
+		<menuitem id="application_center" parent="hr.menu_hr_root" name="Application Center" action="action_application_center_coa"/>
+		<menuitem id="application_center_subbmited" parent="application_center" name="Submitted Applications" action="action_application_center_tree" sequence="1"/>
+		<menuitem id="application_coa" parent="application_center" name="Certificate of Attendance" action="action_application_center_coa" sequence="2"/>
+		<menuitem id="application_ot" parent="application_center" name="Overtime" action="action_application_center_ot" sequence="3"/>
+		<menuitem id="application_leave" parent="application_center" name="Leave" action="action_application_center_leave" sequence="4"/>
+		<menuitem id="application_restday" parent="application_center" name="Rest Day" action="action_application_center_restday" sequence="5"/>
+		<menuitem id="application_earlyout" parent="application_center" name="Early Out" action="action_application_center_earlyout" sequence="6"/>
+		<menuitem id="application_leavetransfer" parent="application_center" name="Leave Transfer" action="action_application_center_leavetransfer" sequence="7"/>
+		<menuitem id="application_dispute" parent="application_center" name="Dispute" action="action_application_center_dispute" sequence="8"/>
+	
+
+
+		
+	</data>
+</flectra>

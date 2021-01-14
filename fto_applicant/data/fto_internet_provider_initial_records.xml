@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+        <record id="converge_internet_provider_default_record" model="res.partner.internet.provider">
+                <field name="x_name">Converge</field>
+                <field name="x_description">Converge</field>
+        </record>
+
+        <record id="globe_internet_provider_default_record" model="res.partner.internet.provider">
+                <field name="x_name">Globe</field>
+                <field name="x_description">Globe</field>
+        </record>
+
+        <record id="pldt_internet_provider_default_record" model="res.partner.internet.provider">
+                <field name="x_name">PLDT</field>
+                <field name="x_description">PLDT</field>
+        </record>
+
+        <record id="sky_broadband_internet_provider_default_record" model="res.partner.internet.provider">
+                <field name="x_name">Sky Broadband</field>
+                <field name="x_description">Sky Broadband</field>
+        </record>
+
+        <record id="smart_internet_provider_default_record" model="res.partner.internet.provider">
+                <field name="x_name">Smart</field>
+                <field name="x_description">Smart</field>
+        </record>
+
+        <record id="other_internet_provider_default_record" model="res.partner.internet.provider">
+                <field name="x_name">Other</field>
+                <field name="x_description">Other</field>
+        </record>
+</flectra>

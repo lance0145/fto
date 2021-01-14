@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+	<record model="ir.ui.view" id="fto_users_form_view_inherited">
+	    <field name="name">fto.user.form.view.inherited</field>
+	    <field name="model">res.users</field>
+	    <field name="inherit_id" ref="base.view_users_form"/>
+	    <field name="arch" type="xml">
+			<field name="company_id" position="attributes">
+				<attribute name="attrs">{'invisible': 1}</attribute>
+			</field>
+			<xpath expr="//field[@name='company_ids']" position="before">
+				<field name="company_id" string="Current Company"/>
+			</xpath>
+			<label for="name" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </label>
+            <field name="name" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </field>
+	        <xpath expr="//field[@name='email']" position="before">
+	        	<h2 class="o_row">
+                	<div>
+			        	<label for="x_user_name_first"/>
+			            <field name="x_user_name_first"/>
+			        </div>
+			    </h2>
+			    <h2 class="o_row">
+                	<div>
+			            <label for="x_user_name_middle"/>
+			            <field name="x_user_name_middle"/>
+			        </div>
+			    </h2>
+			    <h2 class="o_row">
+                	<div>
+			            <label for="x_user_name_last"/>
+			            <field name="x_user_name_last"/>
+			        </div>
+			    </h2>
+	        </xpath>
+	    </field>
+	</record>
+</flectra>

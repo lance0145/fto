@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <!-- for Recruitment > LND Data -->
+
+
+    <record model="ir.ui.view" id="fto_applicant_lnd_form_view">
+        <field name="name">fto_applicant_lnd_form_view form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form create="false" edit="true">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                        </group>
+                         <group>
+                            <field name="id" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="x_lnd_english_proficiency"/>
+                        </group>
+                        <group>
+                            <field name="x_lnd_english_fluency"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="x_lnd_computer_operation"/>
+                        </group>
+                        <group>
+                            <field name="x_lnd_customer_service"/>
+                        </group>
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="fto_applicant_lnd_tree_view">
+        <field name="name">applicant_lnd_tree_view tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="true">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="x_lnd_english_proficiency"/>
+                <field name="x_lnd_english_fluency"/>
+                <field name="x_lnd_computer_operation"/>
+                <field name="x_lnd_customer_service"/>
+                <field name="x_lnd_english_rating"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="fto_applicant_lnd_form_action_list">
+        <field name="name">LND Data</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('x_applicant', '=', True)]</field>
+        <!--field name="target">new</field-->
+    </record>
+
+    <record model="ir.actions.act_window.view" id="fto_applicant_lnd_tree">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="fto_applicant_lnd_tree_view"/>
+        <field name="act_window_id" ref="fto_applicant_lnd_form_action_list"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="fto_applicant_lnd_form">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="fto_applicant_lnd_form_view"/>
+        <field name="act_window_id" ref="fto_applicant_lnd_form_action_list"/>
+    </record>
+
+    <!-- menu item -->
+        <menuitem id="lnd_menu" name="LND Data" parent="hr_recruitment.menu_hr_recruitment_root"
+                    action="fto_applicant_lnd_form_action_list"/>
+
+</flectra>

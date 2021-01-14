@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+        <data noupdate="1">
+                <record id="normal_shift_default_record" model="hr.shift.schedule.type">
+                        <field name="x_name">Normal</field>
+                        <field name="x_description">Regular scheduled shift type</field>
+                </record>
+
+                <record id="split_shift_default_record" model="hr.shift.schedule.type">
+                        <field name="x_name">Split</field>
+                        <field name="x_description">Shift contains more than one tracking metric (i.e. multiple jobs)</field>
+                </record>
+
+                <record id="double_shift_default_record" model="hr.shift.schedule.type">
+                        <field name="x_name">Double</field>
+                        <field name="x_description">Planned double shift in one scheduled day</field>
+                </record>
+
+                <record id="restday_shift_default_record" model="hr.shift.schedule.type">
+                        <field name="x_name">Rest Day</field>
+                        <field name="x_description">Scheduled day off from work</field>
+                </record>
+
+                <record id="leave_shift_default_record" model="hr.shift.schedule.type">
+                        <field name="x_name">Leave</field>
+                        <field name="x_description">Leave scheduled shift type</field>
+                </record>
+        </data>
+</flectra>

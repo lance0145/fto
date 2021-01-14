@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="employee_shift_schedule_tab_inherited" model="ir.ui.view">
+            <field name="name">employee.shift.schedule.tab.inherited</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='hr_settings']" position="after">
+                    <page string="Shift">   
+                        <group colspan="2" string="Shift Schedule">
+                            <field name="x_shift_schedule_ids" nolabel="1">
+                                <tree editable="1" limit="10">
+                                    <field name="x_department_id"/>
+                                    <field name="x_hours_from"/>
+                                    <field name="x_hours_to"/>
+                                    <field name="x_shift_type"/>
+                                    <field name="x_hours_billable"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="shift_template_kanban_view" model="ir.ui.view">
+            <field name="name">employee.shift.kanban</field>
+            <field name="model">resource.calendar</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey o_kanban_dashboard o_shift_kanban">
+                    <field name="color"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click ">
+                                <div class="o_dropdown_kanban dropdown">
+                                    <a class="dropdown-toggle btn" data-toggle="dropdown" href="#" >
+                                        <span class="fa fa-bars fa-lg"/>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                        <t t-if="widget.editable"><li><a type="edit">Edit</a></li></t>
+                                        <t t-if="widget.deletable"><li><a type="delete">Delete</a></li></t>
+                                        <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+                                    </ul>
+                                </div>
+                                <div class="oe_kanban_content">
+                                    <div class="row">
+                                        <div class="o_primary style_shift">
+                                            <div class="text-center"><strong><field name="name"/></strong></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <div class="text-center">
+                                            <!--span t-if="record.hr_department.value">[<field name="hr_department"/>]</span-->
+                                        </div>
+                                    </strong>
+                                </div>
+                            </div>
+                            </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="resource.action_resource_calendar_form" model="ir.actions.act_window">
+            <field name="name">Shift Working Time</field>
+            <field name="res_model">resource.calendar</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="resource.view_resource_calendar_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Define working hours and time table that could be scheduled to your project members
+              </p>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="shift_type_form_view">
+            <field name="name">shift.type.form</field>
+            <field name="model">hr.shift.schedule.type</field>
+            <field name="arch" type="xml">
+                <form string="Shift Type Form">
+                    <sheet>
+                        <group>
+                            <field name="x_name"/>
+                            <field name="x_description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- override the automatically generated list view for courses -->
+        <record model="ir.ui.view" id="shift_type_tree_view">
+            <field name="name">shift.type.tree</field>
+            <field name="model">hr.shift.schedule.type</field>
+            <field name="arch" type="xml">
+                <tree string="Shift Type Tree">
+                    <field name="x_name"/>
+                    <field name="x_description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="shift_type_list_action">
+            <field name="name">Shift Types</field>
+            <field name="res_model">hr.shift.schedule.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create new Shift Type
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Shifts" id="fto_shift_management.menu_shift" parent="hr.menu_human_resources_configuration"
+              action="resource.action_resource_calendar_form"/>
+        <menuitem name="Shift Types" id="fto_shift_management.menu_shift_type" parent="hr.menu_human_resources_configuration"
+              action="shift_type_list_action"/>
+
+
+        <!-- HIDE MENUS -->
+        <record id="make_invisible" model="res.groups">
+            <field name="name">Invisible</field>
+        </record>
+        <record model="ir.ui.menu" id="hr_contract.hr_menu_contract">
+            <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+        </record>
+        <record model="ir.ui.menu" id="fto_shift_management.menu_shift">
+            <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+        </record>
+
+    </data>
+</flectra>

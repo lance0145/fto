@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+		<record model="ir.ui.view" id="identification_name_form_view">
+            <field name="name">identification.form</field>
+            <field name="model">res.identification</field>
+            <field name="arch" type="xml">
+                <form string="Identification Name Form">
+                    <sheet>
+                        <group>
+                            <field name="x_name"/>
+                            <notebook>
+                                <page string="Description">
+                                    <field name="x_description"/>
+                                </page>
+                            </notebook>
+
+                            <field name="x_country_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- override the automatically generated list view for courses -->
+        <record model="ir.ui.view" id="identification_name_tree_view">
+            <field name="name">identification.tree</field>
+            <field name="model">res.identification</field>
+            <field name="arch" type="xml">
+                <tree string="Identification Name Tree">
+                    <field name="x_name"/>
+                    <field name="x_description"/>
+                    <field name="x_country_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="identification_form_view">
+            <field name="name">partner.identification.form</field>
+            <field name="model">res.partner.identification</field>
+            <field name="arch" type="xml">
+                <form string="Identification Form">
+                    <sheet>
+                        <group>
+                            <field name="x_partner_id"/>
+                            <field name="x_identification_id"/>
+                            <field name="x_value"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- override the automatically generated list view for courses -->
+        <record model="ir.ui.view" id="identification_tree_view">
+            <field name="name">partner.identification.tree</field>
+            <field name="model">res.partner.identification</field>
+            <field name="arch" type="xml">
+                <tree string="Identification Tree">
+                    <field name="x_partner_id"/>
+                    <field name="x_identification_id"/>
+                    <field name="x_value"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="identification_name_list_action">
+            <field name="name">Identification Name</field>
+            <field name="res_model">res.identification</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create new Identification Name
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="identification_list_action">
+            <field name="name">Identification</field>
+            <field name="res_model">res.partner.identification</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create Identfication Value
+                </p>
+            </field>
+        </record>
+</flectra>
